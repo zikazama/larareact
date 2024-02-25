@@ -37,6 +37,8 @@ Route::get('form', function () {
     return Inertia::render('Form');
 });
 
+Route::get('siswa/{id}', [Form::class, 'siswa'])->name('siswa.get');
+
 Route::post('form', [Form::class,'store'])->name('form.create');
 
 Route::get('/dashboard', function () {

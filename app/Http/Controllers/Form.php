@@ -28,4 +28,9 @@ class Form extends Controller
             'phpVersion' => PHP_VERSION,
         ]);
     }
+
+    public function siswa(Request $request){
+        // dd($request->route('id'));
+        dd($request->query('page'));
+    }
 }
