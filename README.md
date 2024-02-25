@@ -58,6 +58,15 @@ install laravel and react
 return Inertia::render('pageName', []);
 ```
 
+## Shortcut Laravel
+
+```bash
+php artisan make:model Todo -mcr
+```
+
+```bash
+php artisan make:request FormDataRequest
+```
 
 ## Contributing
 

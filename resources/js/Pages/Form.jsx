@@ -6,6 +6,7 @@ import { addEmail } from "../States/form/formAction";
 const Form = (props) => {
     const dispatch = useDispatch();
     const email = useSelector((state) => state.form.email);
+    console.log(props);
 
     const { data, setData, post, errors } = useForm({
         name: "",
