@@ -30,6 +30,14 @@ npm run dev
 php artisan serve
 ```
 
+## Install redux
+
+install redux
+
+```bash
+npm i redux react-redux @reduxjs/toolkit
+```
+
 ## How to use
 
 install laravel and react
