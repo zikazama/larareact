@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Form;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -31,6 +32,12 @@ Route::get('coba', function () {
         'phpVersion' => PHP_VERSION,
     ]);
 });
+
+Route::get('form', function () {
+    return Inertia::render('Form');
+});
+
+Route::post('form', [Form::class,'store'])->name('form.create');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
