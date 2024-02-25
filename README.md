@@ -84,6 +84,49 @@ php artisan l5-swagger:generate
 
 Click this endpoint http://localhost:8000/api/documentation 
 
+## Install Web Socket on server
+
+```bash
+composer require darkaonline/l5-swagger -W
+```
+
+```bash
+php artisan vendor:publish --provider="BeyondCode\LaravelWebSockets\WebSocketsServiceProvider" --tag="migrations"
+```
+
+```bash
+composer require pusher/pusher-php-server "~3.0"
+```
+
+setting broadcast .env
+
+```bash
+BROADCAST_DRIVER=pusher
+```
+
+Running websocket
+
+```bash
+php artisan websockets:serve
+```
+
+Create event
+
+```bash
+php artisan make:event PublicMessageEvent
+```
+
+```bash
+php artisan make:channel PrivateChat
+```
+
+## Install Websocket on client
+
+```bash
+npm install laravel-echo socket.io-client
+```
+
+
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first

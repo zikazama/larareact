@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Form;
+use App\Http\Controllers\Websocket;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -38,6 +39,13 @@ Route::get('form', function () {
 });
 
 Route::get('siswa/{id}', [Form::class, 'siswa'])->name('siswa.get');
+
+// WS
+Route::get('/status', [Websocket::class, 'status']);
+
+Broadcast::channel('messages', function ($user) {
+    return ['id' => $user->id, 'name' => $user->name];
+});
 
 Route::post('form', [Form::class,'store'])->name('form.create');
 
