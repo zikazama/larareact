@@ -10,13 +10,25 @@ install laravel and react
 composer create-project laravel/laravel:^9.0 larareact
 ```
 
+install breeze
+
 ```bash
 composer require laravel/breeze --dev
 ```
 
+install react
+
 ```bash
 php artisan breeze:install react
 ```
+
+setup DB and run 
+
+```bash
+php artisan migrate
+```
+
+install depedency node
 
 ```bash
 npm install
