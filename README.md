@@ -68,6 +68,22 @@ php artisan make:model Todo -mcr
 php artisan make:request FormDataRequest
 ```
 
+## Install Swagger
+
+```bash
+composer require darkaonline/l5-swagger
+```
+
+```bash
+php artisan vendor:publish --provider "L5Swagger\L5SwaggerServiceProvider"
+```
+
+```bash
+php artisan l5-swagger:generate
+```
+
+Click this endpoint http://localhost:8000/api/documentation 
+
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first
