@@ -7,16 +7,15 @@ This is larareact repo for session 3 and 4.
 install laravel and react
 
 ```bash
-composer create-project laravel/laravel larareact
+composer create-project laravel/laravel:^9.0 larareact
 ```
 
 ```bash
-composer require laravel/ui
-
+composer require laravel/breeze --dev
 ```
 
 ```bash
-php artisan ui react
+php artisan breeze:install react
 ```
 
 ```bash
@@ -29,6 +28,14 @@ npm run dev
 
 ```bash
 php artisan serve
+```
+
+## How to use
+
+install laravel and react
+
+```javascript
+return Inertia::render('pageName', []);
 ```
 
 
