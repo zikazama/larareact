@@ -1,7 +1,12 @@
 import React from "react";
 import { usePage, useForm } from "@inertiajs/react";
+import { useDispatch, useSelector } from "react-redux";
+import { addEmail } from "../States/form/formAction";
 
 const Form = (props) => {
+    const dispatch = useDispatch();
+    const email = useSelector((state) => state.form.email);
+
     const { data, setData, post, errors } = useForm({
         name: "",
         email: "",
@@ -10,8 +15,10 @@ const Form = (props) => {
 
     function handleSubmit(e) {
         e.preventDefault();
+        dispatch(addEmail(data.email));
         post(route("form.create"));
     }
+
     return (
         <div>
             <h1>Registraction</h1>
