@@ -87,7 +87,11 @@ Click this endpoint http://localhost:8000/api/documentation
 ## Install Web Socket on server
 
 ```bash
-composer require darkaonline/l5-swagger -W
+composer require react/promise:^2.3
+```
+
+```bash
+composer require beyondcode/laravel-websockets
 ```
 
 ```bash
@@ -95,7 +99,15 @@ php artisan vendor:publish --provider="BeyondCode\LaravelWebSockets\WebSocketsSe
 ```
 
 ```bash
-composer require pusher/pusher-php-server "~3.0"
+php artisan migrate
+```
+
+```bash
+php artisan vendor:publish --provider="BeyondCode\LaravelWebSockets\WebSocketsServiceProvider" --tag="config"
+```
+
+```bash
+composer require pusher/pusher-php-server
 ```
 
 setting broadcast .env
@@ -103,6 +115,8 @@ setting broadcast .env
 ```bash
 BROADCAST_DRIVER=pusher
 ```
+
+Uncomment App\Providers\BroadcastServiceProvider::class, in config\app.php at providers
 
 Running websocket
 
@@ -123,7 +137,8 @@ php artisan make:channel PrivateChat
 ## Install Websocket on client
 
 ```bash
-npm install laravel-echo socket.io-client
+npm i laravel-echo
+npm i pusher-js
 ```
 
 # Create Unit Test

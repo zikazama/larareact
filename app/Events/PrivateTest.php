@@ -10,20 +10,19 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class NewTrade
+class PrivateTest implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
-
-    public $trade;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($trade)
+    public $user;
+    public function __construct($user)
     {
-        $this->trade = $trade;
+        $this->user = $user;
     }
 
     /**
@@ -31,8 +30,12 @@ class NewTrade
      *
      * @return \Illuminate\Broadcasting\Channel|array
      */
+
+    public function broadcastWith(){
+        return ['name'=> $this->user->first_name];
+    }
     public function broadcastOn()
     {
-        return new Channel('trades');
+        return new PrivateChannel('test-channel.'.$this->user->id);
     }
 }

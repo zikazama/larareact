@@ -4,6 +4,7 @@ use App\Http\Controllers\Form;
 use App\Http\Controllers\Websocket;
 use App\Http\Controllers\ProfileController;
 use App\Events\Hello;
+use App\Events\PrivateTest;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -46,9 +47,16 @@ Route::get('/status', [Websocket::class, 'status']);
 
 Route::post('form', [Form::class,'store'])->name('form.create');
 
-Route::get('/broadcast', function () {
-    Hello::dispatch();
-    return 'sent';
+Route::get('/broadcast',function(){
+
+    broadcast(new Hello());
+    return "Event has been sent!";
+});
+
+Route::get('/broadcastPrivate',function(){
+    $user = App\Models\User::find(5);
+    broadcast(new PrivateTest($user));
+    return "Event has been sent!";
 });
 
 Route::get('/dashboard', function () {

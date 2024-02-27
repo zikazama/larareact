@@ -7,10 +7,11 @@ use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;
 use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
+use Illuminate\Contracts\Broadcasting\ShouldBroadcastNow;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class Hello
+class Hello implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
@@ -24,11 +25,11 @@ class Hello
         //
     }
 
+
     public function broadcastWith()
     {
-        return [
-            'welcome' => 'Welcome to the club'
-        ];
+         //echo"broadcastWith";
+        return  ['welcome'=>'welcome to the club'];
     }
 
     /**
@@ -40,4 +41,6 @@ class Hello
     {
         return new Channel('public');
     }
+
+
 }
