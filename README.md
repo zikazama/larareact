@@ -136,6 +136,16 @@ php artisan make:test NamaTest
 php artisan test --filter NamaTest
 ```
 
+# Benchmark
+
+```bash
+use Illumninate/Support/Benchmark
+```
+
+```bash
+Benchmark::measure(fn() => User::find(1));
+```
+
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first
