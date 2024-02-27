@@ -3,6 +3,7 @@
 use App\Http\Controllers\Form;
 use App\Http\Controllers\Websocket;
 use App\Http\Controllers\ProfileController;
+use App\Events\Hello;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -43,11 +44,12 @@ Route::get('siswa/{id}', [Form::class, 'siswa'])->name('siswa.get');
 // WS
 Route::get('/status', [Websocket::class, 'status']);
 
-Broadcast::channel('messages', function ($user) {
-    return ['id' => $user->id, 'name' => $user->name];
-});
-
 Route::post('form', [Form::class,'store'])->name('form.create');
+
+Route::get('/broadcast', function () {
+    Hello::dispatch();
+    return 'sent';
+});
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');

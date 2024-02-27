@@ -31,4 +31,6 @@ return [
 
     'supports_credentials' => false,
 
+    'origins' => ['http://localhost:8000','http://localhost:6001']
+
 ];

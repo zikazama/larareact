@@ -9,35 +9,30 @@ use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
-use App\Http\Traits\WebSocketsTrait;
 
-
-class PublicMessageEvent implements ShouldBroadcast
+class NewTrade
 {
-    use Dispatchable, InteractsWithSockets, SerializesModels,WebSocketsTrait;
+    use Dispatchable, InteractsWithSockets, SerializesModels;
+
+    public $trade;
 
     /**
      * Create a new event instance.
+     *
+     * @return void
      */
-    public $data;
-    public function __construct()
+    public function __construct($trade)
     {
-        //
+        $this->trade = $trade;
     }
-
-
 
     /**
      * Get the channels the event should broadcast on.
      *
-     * @return array<int, \Illuminate\Broadcasting\Channel>
+     * @return \Illuminate\Broadcasting\Channel|array
      */
     public function broadcastOn()
     {
-        $this->data = $this->status();
-
-        return [
-            new Channel('public'),
-        ];
+        return new Channel('trades');
     }
 }

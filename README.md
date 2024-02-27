@@ -126,6 +126,15 @@ php artisan make:channel PrivateChat
 npm install laravel-echo socket.io-client
 ```
 
+# Create Unit Test
+
+```bash
+php artisan make:test NamaTest
+```
+
+```bash
+php artisan test --filter NamaTest
+```
 
 ## Contributing
 

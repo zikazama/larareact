@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import _ from "lodash";
 window._ = _;
 
 /**
@@ -7,10 +7,10 @@ window._ = _;
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
-import axios from 'axios';
+import axios from "axios";
 window.axios = axios;
 
-window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
@@ -34,11 +34,15 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     enabledTransports: ['ws', 'wss'],
 // });
 
-import Echo from 'laravel-echo';
+import Echo from "laravel-echo";
 
-import io from 'socket.io-client';
-Window.io = io;
+import io from "socket.io-client";
+
 Window.Echo = new Echo({
-    broadcaster: 'socket.io',
-    host: window.location.hostname + ':6001',
+    broadcaster: "socket.io",
+    host: window.location.hostname + ":6001",
+    client: io,
+    disableStats: true,
+    forceTls: false,
+    transports: ['websocket', 'polling', 'flashsocket'] // Fix CORS error!
 });
