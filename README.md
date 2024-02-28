@@ -42,6 +42,10 @@ npm run dev
 php artisan serve
 ```
 
+## Install Roles
+
+https://medium.com/@miladev95/step-by-step-guide-to-user-role-and-permission-tutorial-in-laravel-10-1fecdabfdea0
+
 ## Install redux
 
 install redux
