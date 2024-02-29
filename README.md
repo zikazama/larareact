@@ -62,6 +62,10 @@ install laravel and react
 return Inertia::render('pageName', []);
 ```
 
+## Pagination
+
+https://www.itsolutionstuff.com/post/laravel-react-js-pagination-using-vite-exampleexample.html
+
 ## Shortcut Laravel
 
 ```bash

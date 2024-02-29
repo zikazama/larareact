@@ -21,6 +21,7 @@
     },
     "dependencies": {
         "-": "^0.0.1",
+        "@inertiajs/inertia-react": "^0.8.1",
         "@reduxjs/toolkit": "^2.2.1",
         "ioredis": "^5.3.2",
         "laravel-echo": "^1.16.0",
