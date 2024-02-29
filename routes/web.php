@@ -4,6 +4,7 @@ use App\Http\Controllers\Form;
 use App\Http\Controllers\Websocket;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ExternalServer;
 use App\Events\Hello;
 use App\Events\PrivateTest;
 use Illuminate\Foundation\Application;
@@ -44,6 +45,8 @@ Route::get('form', function () {
 Route::get('external', function () {
     return Inertia::render('External');
 });
+
+Route::get('external-server', [ExternalServer::class, 'index']);
 
 Route::get('siswa/{id}', [Form::class, 'siswa'])->name('siswa.get');
 
