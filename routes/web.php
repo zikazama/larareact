@@ -41,6 +41,10 @@ Route::get('form', function () {
     return Inertia::render('Form');
 });
 
+Route::get('external', function () {
+    return Inertia::render('External');
+});
+
 Route::get('siswa/{id}', [Form::class, 'siswa'])->name('siswa.get');
 
 // WS
