@@ -175,6 +175,10 @@ Benchmark::measure(fn() => User::find(1));
 docker build -t larareact .
 ```
 
+# Install Profiling Tools
+
+https://underground.works/clockwork/#docs-installation
+
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first
