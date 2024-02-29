@@ -22,7 +22,7 @@ export default function PostDashboard(props) {
                             </thead>
                             <tbody>
                                 {posts?.data.map(({ id, title, body }) => (
-                                    <tr>
+                                    <tr key={id}>
                                         <td className="border px-4 py-2">{id}</td>
                                         <td className="border px-4 py-2">{title}</td>
                                         <td className="border px-4 py-2">{body}</td>

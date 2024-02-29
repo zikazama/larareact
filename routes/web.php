@@ -3,6 +3,7 @@
 use App\Http\Controllers\Form;
 use App\Http\Controllers\Websocket;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PostController;
 use App\Events\Hello;
 use App\Events\PrivateTest;
 use Illuminate\Foundation\Application;
@@ -69,8 +70,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/post', function () {
-    return Inertia::render('Posts/Index');
-})->middleware([])->name('post');
+Route::get('/post', [PostController::class, 'index'])->middleware([])->name('post');
 
 require __DIR__.'/auth.php';

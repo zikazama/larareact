@@ -11,7 +11,7 @@ class PostController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return Response
+     * @return 
      */
     public function index()
     {
