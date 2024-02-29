@@ -169,6 +169,12 @@ use Illumninate/Support/Benchmark
 Benchmark::measure(fn() => User::find(1));
 ```
 
+# Build DockerFile
+
+```bash
+docker build -t larareact .
+```
+
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first
