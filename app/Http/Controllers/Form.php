@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Validator;
+use App\Models\User;
+use Spatie\LaravelImageOptimizer\Facades\ImageOptimizer;
+use Spatie\Image\Image;
 
 class Form extends Controller
 {
@@ -56,5 +59,37 @@ class Form extends Controller
     public function siswa(Request $request){
         // dd($request->route('id'));
         dd($request->query('page'));
+    }
+
+    public function lazy(){
+        $users = User::take(3)->get();
+        dd($users);
+    }
+
+    public function eager(){
+        $users = User::with('role')->take(3)->get();
+        dd($users);
+    }
+
+    public function image_compress(Request $request)
+    {
+        // dd($request);
+        // $this->validate($request, [
+        //     'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        // ]);
+   
+        if (!empty($request->image)) {
+            $file =$request->file('image');
+            $extension = $file->getClientOriginalExtension(); 
+            $filename = time().'.' . $extension;
+            $file->move(public_path('uploads/'), $filename);
+            $data['image']= 'public/uploads/'.$filename;
+        }
+        Image::load(public_path('uploads/'). $filename)->optimize()->save();
+
+     
+        return back()
+            ->with('success','Image Upload successful')
+            ->with('imageName',$filename);
     }
 }

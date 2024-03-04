@@ -179,6 +179,12 @@ docker build -t larareact .
 
 https://underground.works/clockwork/#docs-installation
 
+# Install image compress
+
+```bash
+composer require intervention/image
+```
+
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first

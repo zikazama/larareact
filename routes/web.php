@@ -48,6 +48,14 @@ Route::get('form', function () {
     return Inertia::render('Form');
 });
 
+Route::get('image', function () {
+    return Inertia::render('Image');
+});
+
+Route::get('bootstrap', function () {
+    return Inertia::render('Bootstrap');
+});
+
 Route::get('external', function () {
     return Inertia::render('External');
 });
@@ -60,6 +68,7 @@ Route::get('siswa/{id}', [Form::class, 'siswa'])->name('siswa.get');
 Route::get('/status', [Websocket::class, 'status']);
 
 Route::post('form', [Form::class,'store'])->name('form.create');
+Route::post('image', [Form::class,'image_compress'])->name('image.create');
 
 Route::get('/broadcast',function(){
 
