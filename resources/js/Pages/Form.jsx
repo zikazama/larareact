@@ -4,9 +4,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { addEmail } from "../States/form/formAction";
 
 const Form = (props) => {
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
     const email = useSelector((state) => state.form.email);
     console.log(props);
+    if(props.errors){       
+        alert(props.errors.name);
+    }
 
     const { data, setData, post, errors } = useForm({
         name: "",
@@ -16,7 +19,7 @@ const Form = (props) => {
 
     function handleSubmit(e) {
         e.preventDefault();
-        dispatch(addEmail(data.email));
+        // dispatch(addEmail(data.email));
         post(route("form.create"));
     }
 

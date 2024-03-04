@@ -38,6 +38,12 @@ Route::get('coba', function () {
     ]);
 });
 
+Route::get('tiga', function () {
+    return Inertia::render('Tiga', [
+        'nilai' => 100
+    ]);
+});
+
 Route::get('form', function () {
     return Inertia::render('Form');
 });
