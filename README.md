@@ -182,8 +182,31 @@ https://underground.works/clockwork/#docs-installation
 # Install image compress
 
 ```bash
-composer require intervention/image
+composer require spatie/image
 ```
+
+# Queue
+
+```bash
+composer require predis/predis
+```
+
+```bash
+php artisan make:job Tele
+```
+
+```bash
+php artisan queue:table
+```
+
+```bash
+php artisan migrate
+```
+
+```bash
+php artisan queue:work
+```
+
 
 ## Contributing
 

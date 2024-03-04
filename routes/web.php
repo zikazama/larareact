@@ -10,6 +10,7 @@ use App\Events\PrivateTest;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Jobs\Tele;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +51,11 @@ Route::get('form', function () {
 
 Route::get('image', function () {
     return Inertia::render('Image');
+});
+
+Route::get('tele', function () {
+    Tele::dispatch();
+    return 'Berhasil membuat queue';
 });
 
 Route::get('bootstrap', function () {
